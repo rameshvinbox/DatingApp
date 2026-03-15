@@ -1,0 +1,4 @@
+### Register user
+curl -s -X POST https://localhost:5001/api/account/register -H "Content-Type: application/json" -d '{"DisplayName":"Bob","Email":"Bob@test.com","Password":"pass"}' -w "\nHTTP Status: %{http_code}\n"
+### Login User 
+curl -s -X POST https://localhost:5001/api/account/login -H "Content-Type: application/json" -d '{"Email":"Bob@test.com","Password":"pass"}' -w "\nHTTP Status: %{http_code}\n"
