@@ -1,4 +1,12 @@
+### Get Members All
+curl -s -X Get https://localhost:5001/api/members -H "Content-Type: application/json" -w "\nHTTP Status: %{http_code}\n"
+
+### Login User as Bob
+curl -s -X POST https://localhost:5001/api/account/login -H "Content-Type: application/json" -d '{"Email":"Bob@test.com","Password":"pass"}' -w "\nHTTP Status: %{http_code}\n"
+
+### Get Member Specific -- Bearer JWT is from Login 
+curl -s -X Get https://localhost:5001/api/members/06c330ad-0c27-419e-9735-787bfbf0c615 -H "Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkJvYkB0ZXN0LmNvbSIsIm5hbWVpZCI6IjA2YzMzMGFkLTBjMjctNDE5ZS05NzM1LTc4N2JmYmYwYzYxNSIsIm5iZiI6MTc3MzYyODQyOSwiZXhwIjoxNzc0MjMzMjI5LCJpYXQiOjE3NzM2Mjg0Mjl9.RFD-5on0ZT_iYLVIF-z6xahAlcaO3kk2dpdFLqzB6Nx7D7ypeW-Dv2W-00LKwVScffPGMyUYQjWM8I3yyWVCkg" -w "\nHTTP Status: %{http_code}\n"
+
 ### Register user
 curl -s -X POST https://localhost:5001/api/account/register -H "Content-Type: application/json" -d '{"DisplayName":"Bob","Email":"Bob@test.com","Password":"pass"}' -w "\nHTTP Status: %{http_code}\n"
-### Login User 
-curl -s -X POST https://localhost:5001/api/account/login -H "Content-Type: application/json" -d '{"Email":"Bob@test.com","Password":"pass"}' -w "\nHTTP Status: %{http_code}\n"
+curl -s -X POST https://localhost:5001/api/account/register -H "Content-Type: application/json" -d '{"DisplayName":"Jane","Email":"Jane@test.com","Password":"pass"}' -w "\nHTTP Status: %{http_code}\n"
